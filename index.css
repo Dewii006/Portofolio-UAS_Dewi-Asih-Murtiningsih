@@ -1,0 +1,163 @@
+body{
+    background-image: url(asset/background.png);
+     background-size: cover;      /* biar full layar */
+    background-repeat: no-repeat; /* biar ga ngulang */
+    background-position: center;  /* posisi tengah */
+    margin: 0;                    /* cegah overflow */
+    overflow-x: hidden;  
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    
+}
+
+.left {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.big-box {
+
+    position: relative;
+    height: 450px;
+    width: 650px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.big-box img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.foto-1 {
+    z-index: 1; 
+    position: absolute;
+    bottom: -15px;
+    left: 50px;
+    transform: scale(1.5);
+}
+
+.foto-2 {
+    z-index: 2;
+    transform: scale(0.9); 
+    bottom: 10px;
+    right:-55px;
+}
+.foto-3 {
+    z-index: 3;
+    transform: scale(0.8); 
+    bottom: -120px;
+    right: -146px;
+}
+.bottom-box {
+    height: 80px;
+    width: 650px;
+    overflow: hidden;
+}
+.botto-box img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.foto-6 {
+    z-index: 1; 
+    position: absolute;
+    bottom: -190px;
+    left: -172px;
+    transform: scale(0.5);
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.small-box {
+   position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-left: -15px;
+    width: 550px;
+    height: 550px;
+  
+}
+
+.small-box img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foto-4 {
+    z-index: 1; 
+    position: absolute;
+    bottom: 40px;
+    right: 60px;
+    transform: scale(1.4);
+}
+.foto-5 {
+    z-index: 2;
+    transform: scale(1); 
+    bottom: 10px;
+    left: 10px;
+}
+.open-btn {
+    position: absolute;
+    top: 280px;
+    left: 110px;
+    padding: 8px 35px;
+    background: #e8f4ff;
+    color: rgb(36, 35, 35);
+    text-decoration: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 33px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    z-index: 10; 
+}
+
+.open-btn:hover {
+    background: #e6e398;
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Animasi masuk lembut */
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+

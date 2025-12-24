@@ -1,0 +1,61 @@
+<html>
+<body>
+<style>
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    
+}
+
+.left {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    
+}
+.asset {
+   
+    position: relative;
+    height: 450px;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.asset img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.foto-1 {
+    z-index: 1; 
+    position: absolute;
+    bottom: -2.5px;
+    left: 50px;
+    transform: scale(2);
+}
+.foto-2 {
+    z-index: 2;
+    transform: scale(0.7); 
+    bottom: -4px;
+    right: 170px;
+}
+.foto-3 {
+    z-index: 3; 
+    bottom: -10px;
+    left: 250px;
+    transform: scale(1.1);
+}
+    </style>
+    <div class="container">
+    <div class="left">
+        <div class="asset">
+            <img class="foto-1" src="asset1/folder1.png">
+            <img class="foto-2" src="asset1/font asset.png">
+            <img class="foto-3" src="asset1/card.png">
+            
+        </div>
+</body>
+</html>

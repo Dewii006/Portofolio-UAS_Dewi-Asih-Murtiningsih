@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informasi</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  margin: 0;
+  color: #1e1e1e;
+}
+
+/* ================= CONTAINER ================= */
+.info-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 80px 20px;
+  animation: fadeUp 1s ease;
+}
+
+/* ================= HEADER ================= */
+.info-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.info-header h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.info-header p {
+  color: #555;
+  max-width: 600px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+/* ================= GRID ================= */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+/* ================= CARD ================= */
+.info-card {
+  background: #214ae5;
+  padding: 28px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(255, 250, 250, 0.08);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: .6s ease;
+}
+
+.info-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.info-card h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 22px;
+  color: aliceblue;
+  text-shadow: 0 15px 40px rgba(255, 250, 250, 0.08);
+}
+
+.info-card p,
+.info-card li {
+  font-size: 14px;
+  color: #f4e0e0;
+  line-height: 1.6;
+}
+
+.info-card ul {
+  padding-left: 18px;
+}
+
+/* ================= FOOTER TEXT ================= */
+.info-footer {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .info-header h1 {
+    font-size: 30px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="info-container">
+
+  <!-- HEADER -->
+  <div class="info-header">
+    <h1>Informasi</h1>
+    <p>
+      Halaman ini berisi penjelasan mengenai website portofolio yang dibuat
+      sebagai bagian dari tugas Ujian Akhir Semester (UAS).
+    </p>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="info-grid">
+
+    <div class="info-card reveal">
+      <h2>Tentang Website</h2>
+      <p>
+        Website portofolio ini dibuat sebagai media untuk menampilkan identitas diri,
+        karya desain, serta media yang telah dibuat selama proses pembelajaran.
+      </p>
+    </div>
+
+    <div class="info-card reveal">
+      <h2>Tujuan Pembuatan</h2>
+      <ul>
+        <li>Melatih pembuatan website statis</li>
+        <li>Menerapkan HTML, CSS, dan JavaScript dasar</li>
+        <li>Menyusun portofolio digital secara terstruktur</li>
+      </ul>
+    </div>
+
+    <div class="info-card reveal">
+      <h2>Struktur Halaman</h2>
+      <ul>
+        <li>Home</li>
+        <li>Profile</li>
+        <li>Project</li>
+        <li>Media</li>
+        <li>Informasi</li>
+        <li>Kontak</li>
+      </ul>
+    </div>
+
+    <div class="info-card reveal">
+      <h2>Teknologi yang Digunakan</h2>
+      <ul>
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript (Basic)</li>
+        <li>Canva & Affinity (Untuk Desain Visual)</li>
+      </ul>
+    </div>
+
+    <div class="info-card reveal">
+      <h2>Konsep Desain</h2>
+      <p>
+        Website ini menggunakan konsep desain modern dengan tampilan sederhana,
+        fokus pada visual yang rapi, nyaman dilihat, dan mudah digunakan.
+      </p>
+    </div>
+
+    <div class="info-card reveal">
+      <h2>Pengembangan ke Depan</h2>
+      <p>
+        Website ini diharapkan dapat dikembangkan lebih lanjut sebagai portofolio
+        profesional serta menjadi dasar pembelajaran UI/UX dan web development.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+/* REVEAL ON SCROLL */
+const cards = document.querySelectorAll('.reveal');
+
+function revealOnScroll() {
+  cards.forEach(card => {
+    const pos = card.getBoundingClientRect().top;
+    if (pos < window.innerHeight - 100) {
+      card.classList.add('show');
+    }
+  });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+</head>
+<title>Profile</title>
+
+<style>
+  * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  position: relative; /* wajib untuk absolute */
+  padding: 20px;
+}
+
+/* ===== FOTO BACKGROUND ===== */
+.asset {
+  position: relative;
+  height: 450px;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.foto-1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(2);
+  bottom: -2.5px;
+  z-index: 1;
+}
+.foto-2 {
+  position: absolute;
+    z-index: 10;
+    transform: scale(2.9); 
+    bottom: 100px;
+    right: 170px;
+    width: 120px;
+     animation: floatRotate 4s ease-in-out infinite;
+}
+
+/* ===== BIODATA ===== */
+.biodata {
+  position: absolute;
+  z-index: 20;      /* di atas foto */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+ 
+}
+
+/* PILLS / LABEL */
+.bio-pill1 {
+  position: absolute;
+  padding: 3px px;
+  color: #414244;
+  font-weight: 600;
+  font-size: 19px;
+  border-radius: 30px;
+  width: fit-content;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  top: -310px;        /* atur posisi */
+  left: 470px;
+  min-width: 210px;
+  text-align: left;
+   font-family: 'Segoe UI', sans-serif;
+}
+
+
+.bio-pill2 {
+  position: absolute;
+  padding: 3px px;
+  color: #414244;
+  font-weight: 600;
+  font-size: 19px;
+  border-radius: 30px;
+  width: fit-content;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  top: -260px;        /* atur posisi */
+  left: 450px;
+  min-width: 220px;
+  text-align: left;
+   font-family: 'Segoe UI', sans-serif;
+}
+.bio-pill3 {
+  position: absolute;
+  padding: 3px 0px;
+  color: #414244;
+  font-weight: 600;
+  font-size: 19px;
+  border-radius: 30px;
+  width: fit-content;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  top: -210px;        /* atur posisi */
+  left: 430px;
+  min-width: 224px;
+  text-align: left;
+   font-family: 'Segoe UI', sans-serif;
+}
+
+
+.biodata p {
+  margin: 6px 0;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* ===== SKILLS ===== */
+.skills {
+  position: absolute;
+  
+  width: 260px;
+  z-index: 10;
+}
+
+.skill1 {
+  position: absolute;
+  text-align: center;
+  margin-bottom: px;
+  top: -150px;     /* ATUR SENDIRI */
+  left: 430px;
+  width: 150px;
+  font-size: 14px;
+  color: #e5eeff;
+  font-family: 'Segoe UI', sans-serif;
+}
+.skill1 p{
+   position: absolute;
+  top: 20px;     /* ATUR SENDIRI */
+  left: 60px;
+  font-size: 16px;
+  color: #e5eeff;
+  font-family: 'Segoe UI', sans-serif;
+}
+.skill2 {
+  position: absolute;
+  text-align: center;
+  margin-bottom: px;
+  top: -150px;     /* ATUR SENDIRI */
+  left: 600px;
+  width: 150px;
+  font-size: 14px;
+  color: #e5eeff;
+  font-family: 'Segoe UI', sans-serif;
+}
+.skill2 p{
+   position: absolute;
+  top: 20px;     /* ATUR SENDIRI */
+  left: 70px;
+  font-size: 16px;
+  color: #e5eeff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+  .judul {
+  position: absolute;
+ font-family: 'Segoe UI', sans-serif;
+  top: 300px;      /* ubah ini */
+  left: 240px;      /* ubah ini */
+  font-size: 40px;  /* WAJIB ADA px */
+  color: #e8eefa;
+  z-index: 20;
+  font-weight: 700
+
+}
+
+
+
+.bar {
+  background: #cfe8ff;
+  height: 18px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.fill {
+  background: linear-gradient(to right, #9ed8ff, #ffffff);
+  height: 100%;
+  animation: loadBar 1.5s ease forwards;
+}
+
+
+/* ===== ABOUT ===== */
+.about-title {
+  position: absolute;
+  top: 45px;      
+  right: 210px;    
+  font-size: 50px;
+  font-weight: 700;
+  color: #e8eefa;
+  z-index: 20;
+  font-family: 'Segoe UI', sans-serif;
+   text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+   opacity: 0;
+   animation: softFade 0.8s ease forwards;;
+}
+.about-title2 {
+  position: absolute;
+  top: 280px;     
+  right: 190px;   
+  text-align: center; 
+  font-size: 30px;
+  font-weight: 700;
+  color: #e8eefa;
+  z-index: 20;
+  font-family: 'Segoe UI', sans-serif;
+   text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+.about-text {
+  position: absolute;
+  top: 110px;    
+  left: 900px;
+  max-width: 250px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #e5eeff;
+  line-height: 1;
+  z-index: 20;
+   text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  font-family: 'Segoe UI', sans-serif;
+  opacity: 0;
+  animation: softFade 0.8s ease forwards;
+  animation-delay: 0.25s;
+}
+
+.profile-frame {
+  position: absolute;
+
+  width: 290px;
+  height: 290px;
+  border-radius: 50%;
+  overflow: hidden;   
+  background: #ffffff;
+  border: 6px solid #dbe9ff;
+  top: 30px;
+  left: 140px;
+  z-index: 0;        
+  box-shadow: 0 0 30px rgba(14, 46, 90, 0.8);
+  animation: zoomIn 0.8s ease forwards;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.bio-pill1,
+.bio-pill2,
+.bio-pill3 {
+  transition: all 0.3s ease;
+}
+
+.bio-pill1:hover,
+.bio-pill2:hover,
+.bio-pill3:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+}
+
+@keyframes loadBar {
+  from {
+    width: 0;
+  }
+}
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+@keyframes floatRotate {
+  0% {
+    transform: scale(2.9) translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: scale(2.9) translateY(-5px) rotate(1.5deg);
+  }
+  100% {
+    transform: scale(2.9) translateY(0) rotate(0deg);
+  }
+}
+@keyframes softFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- FOTO -->
+  <div class="asset">
+    <img class="foto-1" src="asset1/file asset2.png">
+    <img class="foto-2" src="asset1/logo.png">
+   <div class="profile-frame">
+    <img src="asset1/pfp.jpeg" class="profile-img">
+  </div>
+  <div class="judul">SKILLS</div>
+  </div>
+
+  <!-- BIODATA -->
+  <!-- BIODATA -->
+<div class="biodata">
+  <div class="bio-pill1">Dewi Asih Murtiningsih</div>
+  <div class="bio-pill2">📆 Jakarta, 29 Juni 2007</div>
+  <div class="bio-pill3">📍 Jl Pedurenan 3, Bogor</div>
+</div>
+
+
+  <!-- SKILLS -->
+  <div class="skills">
+    <div class="skill1">
+      <strong>Communication</strong>
+      <p>80%</p>
+      <div class="bar">
+        <div class="fill" style="width:80%"></div>
+      </div>
+    </div>
+
+    <div class="skill2">
+      <strong>Team Work</strong>
+      <p>90%</p>
+      <div class="bar">
+        <div class="fill" style="width:90%"></div>
+      </div>
+    </div>
+  </div>
+   
+
+<div class="about-title">About Me</div>
+
+<div class="about-text">
+  <p>
+    Saya adalah mahasiswa sistem informasi yang tertarik pada UI/UX Design,
+    Mahasiswa Sistem Informasi yang tertarik pada UI/UX Design. Menyukai desain visual sejak SMA melalui pembuatan poster dan konten media sosial. Saat ini saya menggunakan Canva dan Ibis Paint, serta sedang dalam tahap awal 
+    mempelajari Figma.
+  </p>
+</div>
+
+</div>
+
+</body>
+</html>

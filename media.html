@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media Showcase</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  margin: 0;
+
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ================= POPUP HEADER ================= */
+.header-popup {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffad2e;
+  backdrop-filter: blur(10px);
+  padding: 16px 28px;
+  border-radius: 40px;
+  display: flex;
+  gap: 16px;
+  z-index: 50;
+  box-shadow: 0 20px 50px rgba(0,0,0,.6);
+}
+
+.header-popup button {
+  border: none;
+  padding: 10px 22px;
+  border-radius: 30px;
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.header-popup button.active,
+.header-popup button:hover {
+  background: #fffdbc;
+}
+
+/* ================= SECTION ================= */
+.section {
+  min-height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding-top: 120px;
+}
+
+.section.active {
+  display: flex;
+}
+
+/* ================= PHOTO WRAPPER ================= */
+.photo-wrapper {
+  background: #214ae5;
+  padding: 30px 50px;
+  border-radius: 40px;
+}
+
+/* ================= STACKED CARDS ================= */
+.card-stack {
+  position: relative;
+  width: 720px;
+  height: 420px;
+}
+
+.photo-card {
+  position: absolute;
+  width: 250px;
+  height: 390px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: .6s ease;
+  cursor: pointer;
+  filter: brightness(0.6);
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* initial stacked */
+.photo-card:nth-child(1) {
+  left: 230px;
+  z-index: 3;
+}
+.photo-card:nth-child(2) {
+  left: 230px;
+  top: 10px;
+  z-index: 2;
+  opacity: .8;
+}
+.photo-card:nth-child(3) {
+  left: 230px;
+  top: 20px;
+  z-index: 1;
+  opacity: .6;
+}
+
+/* spread on hover */
+.card-stack:hover .photo-card:nth-child(1) {
+  left: 0;
+}
+.card-stack:hover .photo-card:nth-child(2) {
+  left: 230px;
+}
+.card-stack:hover .photo-card:nth-child(3) {
+  left: 460px;
+}
+
+/* individual hover */
+.photo-card:hover {
+  filter: brightness(1);
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+/* ================= SIMPLE GRID ================= */
+.simple-grid {
+  display: flex;
+  gap: 30px;
+}
+
+.simple-card {
+  width: 260px;
+  padding: 18px;
+  background: #214ae5;
+  border-radius: 20px;
+  animation: fadeUp .6s ease forwards;
+  transition: .4s;
+}
+.simple-card iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+}
+
+.video-title {
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+}
+
+/* hover effect */
+.simple-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0,0,0,.35);
+}
+.simple-card video,
+.simple-card audio {
+  width: 100%;
+}
+
+/* ================= MODAL ================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 24px;
+}
+
+/* ================= ANIM ================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header-popup">
+  <button class="active" onclick="switchTab('photo', this)">Foto</button>
+  <button onclick="switchTab('video', this)">Video</button>
+  <button onclick="switchTab('audio', this)">Audio</button>
+</div>
+
+<!-- FOTO -->
+<section class="section active" id="photo">
+  <div class="photo-wrapper">
+    <div class="card-stack">
+      <div class="photo-card" onclick="openModal(this)">
+        <img src="media/img1.jpg">
+      </div>
+      <div class="photo-card" onclick="openModal(this)">
+        <img src="media/img2.jpg">
+      </div>
+      <div class="photo-card" onclick="openModal(this)">
+        <img src="media/img3.jpg">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- VIDEO -->
+<section class="section" id="video">
+  <div class="simple-grid">
+
+    <div class="simple-card">
+      <iframe
+      src="https://www.youtube.com/embed/a5KYlHNKQB8"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+      </iframe>
+
+      <p class="video-title">BELAJAR LAYOUT</p>
+    </div>
+
+    <div class="simple-card">
+      <iframe
+      src="https://www.youtube.com/embed/_47sjkS_mwQ"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+      </iframe>
+
+      <p class="video-title">BELAJAR KOMBINASI WARNA</p>
+    </div>
+
+    <div class="simple-card">
+      <iframe
+      src="https://www.youtube.com/embed/AmDKFOXD_Jg"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+      </iframe>
+      <p class="video-title">FIGMA PEMULA</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- AUDIO -->
+<section class="section" id="audio">
+  <div class="simple-grid">
+    <div class="simple-card"><audio controls src="media/audio1.mp3"></audio></div>
+    <div class="simple-card"><audio controls src="media/audio2.mp3"></audio></div>
+    <div class="simple-card"><audio controls src="media/audio3.mp3"></audio></div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal" onclick="closeModal()">
+  <img id="modalImg">
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+
+  document.querySelectorAll('.header-popup button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function openModal(card) {
+  document.getElementById('modal').classList.add('show');
+  document.getElementById('modalImg').src = card.querySelector('img').src;
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('show');
+}
+</script>
+
+</body>
+</html>
