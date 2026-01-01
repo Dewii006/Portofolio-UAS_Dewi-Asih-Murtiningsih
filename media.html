@@ -188,6 +188,138 @@ body {
   max-height: 90%;
   border-radius: 24px;
 }
+.download-btn {
+  display: block;
+  margin-top: 12px;
+  padding: 10px;
+  text-align: center;
+  background: #ffad2e;
+  color: #f3efef;
+  font-weight: 700;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: .3s ease;
+  text-shadow: 0 20px 40px rgba(0,0,0,.35);
+}
+
+.download-btn:hover {
+  background: #fffdbc;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,.35);
+}
+/* DOCUMENT CARD */
+.document-card {
+  text-align: center;
+}
+
+.doc-icon {
+  font-size: 80px;
+  margin: 20px 0;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* TABLET */
+@media (max-width: 1024px) {
+
+  .card-stack {
+    width: 100%;
+    height: 420px;
+  }
+
+  .photo-wrapper {
+    padding: 30px;
+  }
+
+  .simple-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  /* HEADER */
+  .header-popup {
+    top: 12px;
+    padding: 10px;
+    gap: 10px;
+    width: 95%;
+    overflow-x: auto;
+  }
+
+  .header-popup button {
+    padding: 8px 16px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  /* SECTION */
+  .section {
+    padding-top: 90px;
+  }
+
+  /* FOTO STACK → JADI GRID */
+  .card-stack {
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .photo-card {
+    position: relative;
+    width: 30%;
+    height: 220px;
+    left: 0 !important;
+    top: 0 !important;
+    opacity: 1;
+    filter: brightness(1);
+  }
+
+  .card-stack:hover .photo-card {
+    left: 0;
+  }
+
+  /* SIMPLE GRID */
+  .simple-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .simple-card {
+    width: 90%;
+    max-width: 360px;
+  }
+
+  .simple-card iframe {
+    height: 200px;
+  }
+
+  /* AUDIO */
+  audio {
+    width: 100%;
+  }
+}
+
+/* HP KECIL */
+@media (max-width: 480px) {
+
+  .photo-card {
+    width: 100%;
+    height: 260px;
+  }
+
+  .simple-card iframe {
+    height: 180px;
+  }
+
+  .video-title {
+    font-size: 13px;
+  }
+}
 
 /* ================= ANIM ================= */
 @keyframes fadeUp {
@@ -210,6 +342,8 @@ body {
   <button class="active" onclick="switchTab('photo', this)">Foto</button>
   <button onclick="switchTab('video', this)">Video</button>
   <button onclick="switchTab('audio', this)">Audio</button>
+  <button onclick="switchTab('document', this)">Dokumen</button>
+
 </div>
 
 <!-- FOTO -->
@@ -278,6 +412,28 @@ body {
     <div class="simple-card"><audio controls src="media/audio3.mp3"></audio></div>
   </div>
 </section>
+
+<!-- DOCUMENT -->
+<!-- DOCUMENT -->
+<section class="section" id="document">
+  <div class="simple-grid" style="justify-content:center;">
+    
+    <div class="simple-card document-card">
+      <div class="doc-icon">📄</div>
+
+      <p class="video-title">Laporan Portofolio UAS</p>
+
+      <a href="media/dokumen.pdf" target="_blank" class="download-btn">
+        🔗 Buka Dokumen
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+
+
 
 <!-- MODAL -->
 <div class="modal" id="modal" onclick="closeModal()">
